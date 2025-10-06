@@ -1,0 +1,1594 @@
+/* Import font thư pháp */
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #ffd700;
+    --secondary-color: #ffed4e;
+    --accent-color: #ff6b6b;
+    --bg-color: #0a0a0a;
+    --text-color: #ffffff;
+    --shadow-color: rgba(0, 0, 0, 0.5);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2c3e50 100%);
+    background-attachment: fixed;
+    color: var(--text-color);
+    overflow-x: hidden;
+    min-height: 100vh;
+}
+
+/* Background gradient động cho body */
+@keyframes backgroundShift {
+    0%, 100% {
+        background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2c3e50 100%);
+    }
+    50% {
+        background: linear-gradient(135deg, #1a1a1a 0%, #2c3e50 50%, #34495e 100%);
+    }
+}
+
+body {
+    animation: backgroundShift 20s ease-in-out infinite;
+}
+
+.music-control {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.music-control .btn {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    border-radius: 20px;
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    color: #fff;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.music-control .btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 2rem;
+}
+
+.hero {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+
+.main-title {
+    font-size: 5rem;
+    font-weight: bold;
+    color: var(--primary-color);
+    text-shadow: 2px 2px 4px var(--shadow-color);
+    margin-bottom: 2rem;
+    animation: glow 2s ease-in-out infinite alternate;
+}
+
+.typed-text {
+    font-size: 2.5rem;
+    margin-bottom: 2rem;
+    color: var(--secondary-color);
+    font-family: 'Dancing Script', 'Brush Script MT', cursive;
+    font-weight: 700;
+    text-shadow: 
+        0 0 10px rgba(255, 215, 0, 0.8),
+        0 0 20px rgba(255, 215, 0, 0.6),
+        0 0 30px rgba(255, 215, 0, 0.4),
+        2px 2px 4px var(--shadow-color),
+        0 0 5px rgba(255, 165, 0, 0.8);
+    letter-spacing: 3px;
+    background: linear-gradient(45deg, #ffd700, #ffed4e, #ffd700);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    animation: calligraphyGlow 3s ease-in-out infinite alternate;
+    position: relative;
+}
+
+.typed-text::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: -20px;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    animation: brushStroke 2s ease-in-out infinite;
+}
+
+.typed-text::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -20px;
+    width: 40px;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, #ffd700, transparent);
+    animation: brushStroke 2s ease-in-out infinite reverse;
+}
+
+.wishes {
+    padding: 4rem 0;
+}
+
+.wish-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.wishes-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    gap: 2rem;
+    margin-top: 2rem;
+    min-height: 600px;
+}
+
+.wish-card {
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(10px);
+    padding: 2rem;
+    border-radius: 15px;
+    text-align: center;
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    min-height: 250px;
+    border: 1px solid rgba(255, 215, 0, 0.2);
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+.wish-card:nth-child(1) {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1), rgba(255, 140, 0, 0.1));
+}
+
+.wish-card:nth-child(2) {
+    background: linear-gradient(135deg, rgba(255, 105, 180, 0.1), rgba(255, 20, 147, 0.1));
+}
+
+.wish-card:nth-child(3) {
+    background: linear-gradient(135deg, rgba(135, 206, 250, 0.1), rgba(30, 144, 255, 0.1));
+}
+
+.wish-card:nth-child(4) {
+    background: linear-gradient(135deg, rgba(152, 251, 152, 0.1), rgba(50, 205, 50, 0.1));
+}
+
+.wish-card:hover {
+    transform: translateY(-10px);
+}
+
+.wish-card h3 {
+    color: var(--primary-color);
+    margin-bottom: 1rem;
+}
+
+.wish-card p {
+    line-height: 1.6;
+}
+
+.lanterns {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100px;
+    display: flex;
+    justify-content: space-around;
+    pointer-events: none;
+}
+
+.lantern {
+    width: 50px;
+    height: 70px;
+    background: radial-gradient(var(--primary-color), var(--secondary-color));
+    border-radius: 25px;
+    position: relative;
+    animation: float 3s ease-in-out infinite;
+}
+
+.lantern::before {
+    content: '';
+    position: absolute;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 20px;
+    height: 10px;
+    background-color: var(--secondary-color);
+    border-radius: 5px;
+}
+
+/* Mặt trăng */
+.moon {
+    position: fixed;
+    top: 30px;
+    right: 50px;
+    width: 80px;
+    height: 80px;
+    background: #ffd700;
+    border-radius: 50%;
+    box-shadow: 0 0 30px #ffd700;
+    animation: moonGlow 4s ease-in-out infinite;
+    z-index: -1;
+    opacity: 0.7;
+}
+
+/* Hiệu ứng mặt trăng lướt nhẹ */
+.moon::before {
+    content: '';
+    position: absolute;
+    top: 20px;
+    left: 20px;
+    width: 20px;
+    height: 20px;
+    background: rgba(255, 255, 255, 0.3);
+    border-radius: 50%;
+    animation: moonFloat 6s ease-in-out infinite;
+}
+
+/* Chị Hằng */
+.fairy {
+    position: fixed;
+    top: 45px;
+    right: 65px;
+    width: 24px;
+    height: 48px;
+    z-index: -1;
+    animation: fairyFloat 3s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.fairy-body {
+    position: absolute;
+    width: 24px;
+    height: 32px;
+    background: #ff69b4;
+    border-radius: 12px 12px 0 0;
+    box-shadow: 0 0 8px rgba(255, 105, 180, 0.5);
+}
+
+.fairy-head {
+    position: absolute;
+    top: -12px;
+    left: 4px;
+    width: 16px;
+    height: 16px;
+    background: #ffe4e1;
+    border-radius: 50%;
+}
+
+.fairy-hair {
+    position: absolute;
+    top: -16px;
+    left: 0;
+    width: 24px;
+    height: 24px;
+    background: #000;
+    border-radius: 12px 12px 0 0;
+}
+
+/* Thỏ Ngọc */
+.rabbit {
+    position: fixed;
+    top: 60px;
+    right: 85px;
+    width: 32px;
+    height: 48px;
+    z-index: -1;
+    animation: rabbitHop 2s ease-in-out infinite;
+    opacity: 0.7;
+}
+
+.rabbit-body {
+    position: absolute;
+    width: 32px;
+    height: 40px;
+    background: white;
+    border-radius: 16px;
+    box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+}
+
+.rabbit-head {
+    position: absolute;
+    top: -16px;
+    width: 28px;
+    height: 28px;
+    background: white;
+    border-radius: 50%;
+}
+
+.rabbit-ear {
+    position: absolute;
+    top: -32px;
+    width: 8px;
+    height: 24px;
+    background: white;
+    border-radius: 4px;
+    animation: earWiggle 1s ease-in-out infinite;
+}
+
+.rabbit-ear.left {
+    left: 8px;
+    transform: rotate(-10deg);
+}
+
+.rabbit-ear.right {
+    right: 8px;
+    transform: rotate(10deg);
+}
+
+/* Ngôi sao */
+.stars-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.star {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: white;
+    border-radius: 50%;
+    animation: twinkle 1s ease-in-out infinite;
+}
+
+@keyframes moonGlow {
+    0%, 100% {
+        box-shadow: 0 0 50px #ffd700;
+    }
+    50% {
+        box-shadow: 0 0 80px #ffd700;
+    }
+}
+
+@keyframes twinkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.5;
+        transform: scale(0.5);
+    }
+}
+
+@keyframes moonFloat {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fairyFloat {
+    0%, 100% {
+        transform: translateY(0) translateX(0);
+    }
+    33% {
+        transform: translateY(-10px) translateX(5px);
+    }
+    66% {
+        transform: translateY(-5px) translateX(-5px);
+    }
+}
+
+@keyframes rabbitHop {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-15px);
+    }
+}
+
+@keyframes earWiggle {
+    0%, 100% {
+        transform: rotate(0deg);
+    }
+    25% {
+        transform: rotate(-5deg);
+    }
+    75% {
+        transform: rotate(5deg);
+    }
+}
+
+@keyframes glow {
+    from {
+        text-shadow: 0 0 10px var(--primary-color),
+                     0 0 20px var(--primary-color),
+                     0 0 30px var(--secondary-color);
+    }
+    to {
+        text-shadow: 0 0 20px var(--primary-color),
+                     0 0 30px var(--primary-color),
+                     0 0 40px var(--secondary-color);
+    }
+}
+
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-20px);
+    }
+}
+
+@media (max-width: 768px) {
+    .main-title {
+        font-size: 3rem;
+    }
+    
+    .typed-text {
+        font-size: 1.5rem;
+    }
+    
+    .wish-container {
+        grid-template-columns: 1fr;
+    }
+    
+    /* Responsive cho các vector */
+    .moon {
+        width: 60px;
+        height: 60px;
+        top: 30px;
+        right: 30px;
+    }
+    
+    .fairy {
+        width: 20px;
+        height: 40px;
+        top: 45px;
+        right: 45px;
+    }
+    
+    .fairy-body {
+        width: 20px;
+        height: 25px;
+    }
+    
+    .fairy-head {
+        width: 15px;
+        height: 15px;
+        top: -10px;
+        left: 2.5px;
+    }
+    
+    .fairy-hair {
+        width: 20px;
+        height: 20px;
+        top: -15px;
+    }
+    
+    .rabbit {
+        width: 25px;
+        height: 35px;
+        top: 60px;
+        right: 70px;
+    }
+    
+    .rabbit-body {
+        width: 25px;
+        height: 30px;
+    }
+    
+    .rabbit-head {
+        width: 22px;
+        height: 22px;
+        top: -12px;
+    }
+    
+    .rabbit-ear {
+        width: 6px;
+        height: 20px;
+        top: -25px;
+    }
+    
+    .rabbit-ear.left {
+        left: 5px;
+    }
+    
+    .rabbit-ear.right {
+        right: 5px;
+    }
+}
+
+/* ===== CÁC VECTOR TRUNG THU MỚI THÊM ===== */
+
+/* Bánh Trung Thu */
+.mooncakes {
+    position: fixed;
+    top: 15%;
+    left: -10px;
+    z-index: 2;
+}
+
+.mooncake {
+    position: absolute;
+    width: 40px;
+    height: 40px;
+    background: radial-gradient(circle, #d2691e, #8b4513);
+    border-radius: 50%;
+    border: 3px solid #ffd700;
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.5);
+    animation: mooncakeFloat 4s ease-in-out infinite;
+}
+
+.mooncake::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    background: radial-gradient(circle, #ffd700, #ff8c00);
+    border-radius: 50%;
+}
+
+.mooncake-1 {
+    top: 0;
+    left: 0;
+    animation-delay: 0s;
+}
+
+.mooncake-2 {
+    top: 60px;
+    left: 30px;
+    animation-delay: 1s;
+}
+
+.mooncake-3 {
+    top: 30px;
+    left: 70px;
+    animation-delay: 2s;
+}
+
+/* Cây Quất */
+.kumquat-trees {
+    position: fixed;
+    top: 15%;
+    right: -5px;
+    z-index: -1;
+    opacity: 0.6;
+}
+
+.kumquat-tree {
+    position: absolute;
+    width: 80px;
+    height: 120px;
+}
+
+.kumquat-tree::before {
+    content: '';
+    position: absolute;
+    top: 40px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 80px;
+    background: radial-gradient(ellipse, #228b22, #006400);
+    border-radius: 50% 50% 50% 50% / 60% 60% 40% 40%;
+    box-shadow: 0 0 20px rgba(34, 139, 34, 0.5);
+}
+
+.kumquat-tree::after {
+    content: '';
+    position: absolute;
+    top: 130px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 40px;
+    background: #8b4513;
+    border-radius: 0 0 10px 10px;
+}
+
+.tree-1 {
+    right: 0;
+}
+
+
+
+/* Đám mây */
+.clouds {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 1;
+}
+
+.cloud {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+    animation: cloudFloat 20s ease-in-out infinite;
+}
+
+.cloud::before,
+.cloud::after {
+    content: '';
+    position: absolute;
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 50px;
+}
+
+.cloud-1 {
+    width: 100px;
+    height: 40px;
+    top: 8%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.cloud-1::before {
+    width: 50px;
+    height: 50px;
+    top: -25px;
+    left: 10px;
+}
+
+.cloud-1::after {
+    width: 60px;
+    height: 40px;
+    top: -15px;
+    right: 10px;
+}
+
+.cloud-2 {
+    width: 80px;
+    height: 35px;
+    top: 12%;
+    right: 15%;
+    animation-delay: 7s;
+}
+
+.cloud-2::before {
+    width: 40px;
+    height: 40px;
+    top: -20px;
+    left: 15px;
+}
+
+.cloud-2::after {
+    width: 50px;
+    height: 35px;
+    top: -10px;
+    right: 15px;
+}
+
+.cloud-3 {
+    width: 120px;
+    height: 45px;
+    top: 5%;
+    left: 75%;
+    animation-delay: 14s;
+}
+
+.cloud-3::before {
+    width: 60px;
+    height: 60px;
+    top: -30px;
+    left: 20px;
+}
+
+.cloud-3::after {
+    width: 70px;
+    height: 45px;
+    top: -20px;
+    right: 20px;
+}
+
+.cloud-4 {
+    width: 90px;
+    height: 35px;
+    top: 75%;
+    left: 20%;
+    animation-delay: 21s;
+}
+
+.cloud-4::before {
+    width: 45px;
+    height: 45px;
+    top: -22px;
+    left: 12px;
+}
+
+.cloud-4::after {
+    width: 55px;
+    height: 35px;
+    top: -12px;
+    right: 12px;
+}
+
+.cloud-5 {
+    width: 110px;
+    height: 40px;
+    top: 80%;
+    right: 15%;
+    animation-delay: 28s;
+}
+
+.cloud-5::before {
+    width: 55px;
+    height: 55px;
+    top: -27px;
+    left: 18px;
+}
+
+.cloud-5::after {
+    width: 65px;
+    height: 40px;
+    top: -18px;
+    right: 18px;
+}
+
+/* Pháo hoa mini */
+.fireworks {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 3;
+}
+
+.firework {
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ffd700;
+    border-radius: 50%;
+    animation: fireworkExplode 3s ease-out infinite;
+}
+
+.firework::before,
+.firework::after {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #ff69b4;
+    border-radius: 50%;
+}
+
+.firework-1 {
+    top: 30%;
+    left: 20%;
+    animation-delay: 0s;
+}
+
+.firework-2 {
+    top: 50%;
+    right: 30%;
+    animation-delay: 1s;
+}
+
+.firework-3 {
+    top: 70%;
+    left: 70%;
+    animation-delay: 2s;
+}
+
+/* Đèn lồng bay */
+.floating-lanterns {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: 2;
+}
+
+/* Chữ Nhật bay lên trời sao */
+.japanese-texts {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+}
+
+.japanese-text {
+    position: absolute;
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #ffd700;
+    text-shadow: 0 0 10px rgba(255, 215, 0, 0.8), 0 0 20px rgba(255, 215, 0, 0.6);
+    opacity: 0;
+    animation: flyUpToStars 8s ease-in-out infinite;
+}
+
+@keyframes flyUpToStars {
+    0% {
+        opacity: 0;
+        transform: translateY(0) scale(0.5) rotate(0deg);
+    }
+    10% {
+        opacity: 1;
+        transform: translateY(-20px) scale(1) rotate(5deg);
+    }
+    90% {
+        opacity: 1;
+        transform: translateY(-200px) scale(1.2) rotate(-5deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-300px) scale(0.8) rotate(10deg);
+    }
+}
+
+/* Hình cặp đôi đang hun nhau */
+.emoji-3d {
+    position: relative;
+    margin-bottom: 20px;
+    perspective: 1000px;
+}
+
+.emoji-face {
+    font-size: 80px;
+    display: inline-block;
+    animation: emoji3DFloat 3s ease-in-out infinite;
+    text-shadow: 
+        0 0 20px rgba(255, 154, 158, 0.8),
+        0 0 40px rgba(255, 154, 158, 0.6),
+        0 0 60px rgba(255, 154, 158, 0.4),
+        0 10px 20px rgba(0, 0, 0, 0.3);
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+    transition: all 0.3s ease;
+    transform-style: preserve-3d;
+}
+
+.emoji-face:hover {
+    transform: scale(1.2) rotateY(15deg) rotateX(10deg);
+    text-shadow: 
+        0 0 30px rgba(255, 154, 158, 1),
+        0 0 50px rgba(255, 154, 158, 0.8),
+        0 0 70px rgba(255, 154, 158, 0.6),
+        0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.heart-particles {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 200px;
+    height: 100px;
+    pointer-events: none;
+}
+
+.heart {
+    position: absolute;
+    font-size: 20px;
+    animation: heartFloat3D 4s ease-in-out infinite;
+    opacity: 0;
+}
+
+.heart-1 { 
+    left: 20%; 
+    animation-delay: 0s; 
+    animation-duration: 3s;
+}
+
+.heart-2 { 
+    left: 80%; 
+    animation-delay: 0.5s; 
+    animation-duration: 3.5s;
+}
+
+.heart-3 { 
+    left: 10%; 
+    animation-delay: 1s; 
+    animation-duration: 4s;
+}
+
+.heart-4 { 
+    left: 90%; 
+    animation-delay: 1.5s; 
+    animation-duration: 3.2s;
+}
+
+.heart-5 { 
+    left: 50%; 
+    animation-delay: 2s; 
+    animation-duration: 3.8s;
+}
+
+@keyframes emoji3DFloat {
+    0%, 100% { 
+        transform: translateY(0px) rotateX(0deg) rotateY(0deg);
+    }
+    25% { 
+        transform: translateY(-10px) rotateX(5deg) rotateY(5deg);
+    }
+    50% { 
+        transform: translateY(-15px) rotateX(-3deg) rotateY(-3deg);
+    }
+    75% { 
+        transform: translateY(-8px) rotateX(3deg) rotateY(3deg);
+    }
+}
+
+@keyframes heartFloat3D {
+    0% {
+        transform: translateY(0px) scale(0.5) rotateZ(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 1;
+        transform: scale(1) rotateZ(10deg);
+    }
+    50% {
+        transform: translateY(-60px) scale(1.2) rotateZ(-10deg);
+        opacity: 0.8;
+    }
+    90% {
+        opacity: 0.3;
+        transform: scale(0.8) rotateZ(5deg);
+    }
+    100% {
+        transform: translateY(-100px) scale(0.3) rotateZ(0deg);
+        opacity: 0;
+    }
+}
+
+@keyframes calligraphyGlow {
+    0% {
+        text-shadow: 
+            0 0 10px rgba(255, 215, 0, 0.8),
+            0 0 20px rgba(255, 215, 0, 0.6),
+            0 0 30px rgba(255, 215, 0, 0.4),
+            2px 2px 4px var(--shadow-color),
+            0 0 5px rgba(255, 165, 0, 0.8);
+    }
+    100% {
+        text-shadow: 
+            0 0 15px rgba(255, 215, 0, 1),
+            0 0 30px rgba(255, 215, 0, 0.8),
+            0 0 45px rgba(255, 215, 0, 0.6),
+            3px 3px 6px var(--shadow-color),
+            0 0 8px rgba(255, 165, 0, 1);
+    }
+}
+
+@keyframes brushStroke {
+    0%, 100% {
+        opacity: 0;
+        transform: scaleX(0);
+    }
+    50% {
+        opacity: 1;
+        transform: scaleX(1);
+    }
+}
+
+/* Vị trí cụ thể cho từng chữ - tránh vùng nội dung chính */
+.text-1 {
+    bottom: 12%;
+    left: 2%;
+    animation-delay: 0s;
+    animation-duration: 10s;
+}
+
+.text-2 {
+    bottom: 32%;
+    right: 1%;
+    animation-delay: 2.5s;
+    animation-duration: 12s;
+}
+
+.text-3 {
+    bottom: 52%;
+    left: 3%;
+    animation-delay: 5s;
+    animation-duration: 11s;
+}
+
+.text-4 {
+    bottom: 72%;
+    right: 2%;
+    animation-delay: 7.5s;
+    animation-duration: 9s;
+}
+
+/* Phần Kết Thúc Hoành Tráng */
+.final-wish-section {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #0c0c0c 0%, #1a1a1a 50%, #2c3e50 100%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+    perspective: 1000px;
+}
+
+.final-wish-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+    padding: 20px;
+}
+
+.final-wish-content {
+    background: linear-gradient(135deg, rgba(255, 215, 0, 0.1) 0%, rgba(255, 140, 0, 0.1) 50%, rgba(255, 69, 0, 0.1) 100%);
+    border: 2px solid rgba(255, 215, 0, 0.3);
+    border-radius: 30px;
+    padding: 60px 40px;
+    text-align: center;
+    position: relative;
+    backdrop-filter: blur(15px);
+    box-shadow: 
+        0 0 50px rgba(255, 215, 0, 0.3),
+        0 0 100px rgba(255, 140, 0, 0.2),
+        inset 0 0 50px rgba(255, 255, 255, 0.1);
+    animation: finalWishFloat 6s ease-in-out infinite;
+    transform-style: preserve-3d;
+}
+
+.final-wish-title {
+    font-size: 4rem;
+    font-weight: bold;
+    background: linear-gradient(45deg, #ffd700, #ff8c00, #ff4500);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 30px;
+    text-shadow: 
+        0 0 20px rgba(255, 215, 0, 0.5),
+        0 0 40px rgba(255, 140, 0, 0.3),
+        0 0 60px rgba(255, 69, 0, 0.2);
+    animation: finalTitleGlow 3s ease-in-out infinite alternate;
+    transform: translateZ(50px);
+}
+
+.final-wish-main {
+    font-size: 2rem;
+    color: #ffd700;
+    font-weight: 600;
+    margin-bottom: 20px;
+    text-shadow: 0 0 20px rgba(255, 215, 0, 0.5);
+    animation: finalTextGlow 2s ease-in-out infinite alternate;
+    transform: translateZ(30px);
+}
+
+.final-wish-sub {
+    font-size: 1.2rem;
+    color: #ffcc80;
+    margin-bottom: 30px;
+    opacity: 0.9;
+    animation: finalTextGlow 2.5s ease-in-out infinite alternate;
+    transform: translateZ(20px);
+}
+
+.final-wish-signature {
+    font-size: 1rem;
+    color: #ffb74d;
+    font-style: italic;
+    opacity: 0.8;
+    transform: translateZ(10px);
+}
+
+.final-wish-hearts {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+}
+
+.floating-heart {
+    position: absolute;
+    font-size: 2rem;
+    animation: heartFloatFinal 4s ease-in-out infinite;
+}
+
+.floating-heart:nth-child(1) {
+    top: 20%;
+    left: 10%;
+    animation-delay: 0s;
+}
+
+.floating-heart:nth-child(2) {
+    top: 30%;
+    right: 15%;
+    animation-delay: 0.8s;
+}
+
+.floating-heart:nth-child(3) {
+    bottom: 25%;
+    left: 20%;
+    animation-delay: 1.6s;
+}
+
+.floating-heart:nth-child(4) {
+    bottom: 35%;
+    right: 10%;
+    animation-delay: 2.4s;
+}
+
+.floating-heart:nth-child(5) {
+    top: 50%;
+    left: 50%;
+    animation-delay: 3.2s;
+}
+
+.final-wish-lanterns {
+    position: absolute;
+    top: -50px;
+    left: 0;
+    width: 100%;
+    height: calc(100% + 100px);
+    pointer-events: none;
+}
+
+.final-lantern {
+    position: absolute;
+    font-size: 3rem;
+    animation: lanternFloatFinal 5s ease-in-out infinite;
+}
+
+.final-lantern.lantern-1 {
+    left: 20%;
+    top: 0;
+    animation-delay: 0s;
+}
+
+.final-lantern.lantern-2 {
+    left: 50%;
+    top: -30px;
+    animation-delay: 1.7s;
+}
+
+.final-lantern.lantern-3 {
+    right: 20%;
+    top: -20px;
+    animation-delay: 3.4s;
+}
+
+.final-wish-moon {
+    position: absolute;
+    top: -100px;
+    right: -100px;
+    width: 200px;
+    height: 200px;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+    border-radius: 50%;
+    animation: finalMoonGlow 4s ease-in-out infinite alternate;
+}
+
+.final-wish-stars {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: 
+        radial-gradient(2px 2px at 20px 30px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(2px 2px at 40px 70px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(1px 1px at 90px 40px, rgba(255, 255, 255, 0.3), transparent),
+        radial-gradient(1px 1px at 130px 80px, rgba(255, 255, 255, 0.2), transparent),
+        radial-gradient(2px 2px at 160px 30px, rgba(255, 255, 255, 0.3), transparent);
+    background-repeat: repeat;
+    background-size: 200px 100px;
+    animation: finalStarsTwinkle 3s ease-in-out infinite alternate;
+}
+
+/* Keyframes cho phần kết thúc */
+@keyframes finalWishFloat {
+    0%, 100% { transform: translateY(0px) rotateX(0deg) rotateY(0deg); }
+    25% { transform: translateY(-10px) rotateX(2deg) rotateY(1deg); }
+    50% { transform: translateY(-5px) rotateX(-1deg) rotateY(2deg); }
+    75% { transform: translateY(-15px) rotateX(1deg) rotateY(-1deg); }
+}
+
+@keyframes finalTitleGlow {
+    0% { 
+        text-shadow: 
+            0 0 20px rgba(255, 215, 0, 0.5),
+            0 0 40px rgba(255, 140, 0, 0.3),
+            0 0 60px rgba(255, 69, 0, 0.2);
+    }
+    100% { 
+        text-shadow: 
+            0 0 30px rgba(255, 215, 0, 0.8),
+            0 0 60px rgba(255, 140, 0, 0.5),
+            0 0 90px rgba(255, 69, 0, 0.3),
+            0 0 120px rgba(255, 215, 0, 0.1);
+    }
+}
+
+@keyframes finalTextGlow {
+    0% { opacity: 0.8; }
+    100% { opacity: 1; }
+}
+
+@keyframes heartFloatFinal {
+    0% { transform: translateY(0px) scale(1) rotate(0deg); opacity: 0.7; }
+    50% { transform: translateY(-30px) scale(1.2) rotate(10deg); opacity: 1; }
+    100% { transform: translateY(-60px) scale(0.8) rotate(-5deg); opacity: 0; }
+}
+
+@keyframes lanternFloatFinal {
+    0% { transform: translateY(0px) rotate(-5deg); }
+    50% { transform: translateY(-20px) rotate(5deg); }
+    100% { transform: translateY(0px) rotate(-5deg); }
+}
+
+@keyframes finalMoonGlow {
+    0% { opacity: 0.3; transform: scale(1); }
+    100% { opacity: 0.6; transform: scale(1.1); }
+}
+
+@keyframes finalStarsTwinkle {
+    0% { opacity: 0.5; }
+    100% { opacity: 1; }
+}
+
+/* Responsive cho phần kết thúc */
+@media (max-width: 768px) {
+    .final-wish-content {
+        padding: 40px 20px;
+        margin: 20px;
+    }
+    
+    .final-wish-title {
+        font-size: 3rem;
+    }
+    
+    .final-wish-main {
+        font-size: 1.5rem;
+    }
+    
+    .final-wish-sub {
+        font-size: 1rem;
+    }
+    
+    /* Responsive cho phần wishes */
+    .wishes-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: auto;
+        gap: 1.5rem;
+        min-height: auto;
+    }
+    
+    .wish-card {
+        min-height: 200px;
+        padding: 1.5rem;
+        margin: 0 10px;
+    }
+    
+    .wish-card h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    
+    .wish-card p {
+        font-size: 0.95rem;
+        line-height: 1.6;
+    }
+    
+    /* Responsive cho nút nhạc */
+    .music-control {
+        top: 20px;
+        left: 10px;
+    }
+    
+    .music-control .btn {
+        padding: 6px 12px;
+        font-size: 0.8rem;
+    }
+}
+
+/* Màn hình lớn - tối ưu hóa 2x2 grid */
+@media (min-width: 1200px) {
+    .wishes-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 2.5rem;
+        min-height: 700px;
+    }
+    
+    .wish-card {
+        min-height: 300px;
+        padding: 2.5rem;
+    }
+    
+    .wish-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .wish-card p {
+        font-size: 1.1rem;
+        line-height: 1.8;
+    }
+}
+
+/* Responsive cho tablet */
+@media (max-width: 992px) {
+    .music-control {
+        top: 20px;
+        left: 15px;
+    }
+    
+    .music-control .btn {
+        padding: 7px 14px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Responsive cho màn hình rất nhỏ */
+@media (max-width: 480px) {
+    .music-control {
+        top: 20px;
+        left: 5px;
+    }
+    
+    .music-control .btn {
+        padding: 5px 10px;
+        font-size: 0.75rem;
+    }
+}
+
+/* Animation ngẫu nhiên cho chữ */
+@keyframes randomFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0) scale(0.3) rotate(0deg);
+    }
+    20% {
+        opacity: 1;
+        transform: translateY(-60px) translateX(30px) scale(1) rotate(5deg);
+    }
+    50% {
+        opacity: 1;
+        transform: translateY(-150px) translateX(-20px) scale(1.2) rotate(-8deg);
+    }
+    80% {
+        opacity: 1;
+        transform: translateY(-240px) translateX(40px) scale(1) rotate(10deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-300px) translateX(-10px) scale(0.6) rotate(-5deg);
+    }
+}
+
+/* Animation ngẫu nhiên cho chữ */
+@keyframes randomFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(0) translateX(0) scale(0.3) rotate(0deg);
+    }
+    15% {
+        opacity: 1;
+        transform: translateY(-30px) translateX(10px) scale(1) rotate(8deg);
+    }
+    85% {
+        opacity: 1;
+        transform: translateY(-250px) translateX(-15px) scale(1.3) rotate(-12deg);
+    }
+    100% {
+        opacity: 0;
+        transform: translateY(-350px) translateX(20px) scale(0.8) rotate(15deg);
+    }
+}
+
+/* Hiệu ứng sao cho chữ */
+.japanese-text::before {
+    content: '';
+    position: absolute;
+    width: 4px;
+    height: 4px;
+    background: #fff;
+    border-radius: 50%;
+    top: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    box-shadow: 
+        0 0 10px #fff,
+        20px -30px 0 -1px #fff,
+        -25px -45px 0 -1px #fff,
+        35px -60px 0 -2px #fff;
+    animation: starTwinkle 2s ease-in-out infinite;
+}
+
+@keyframes starTwinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
+}
+
+.floating-lantern {
+    position: absolute;
+    width: 30px;
+    height: 40px;
+    background: radial-gradient(var(--primary-color), var(--secondary-color));
+    border-radius: 15px;
+    animation: floatingLantern 15s ease-in-out infinite;
+}
+
+.floating-lantern::before {
+    content: '';
+    position: absolute;
+    top: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 15px;
+    height: 8px;
+    background-color: var(--secondary-color);
+    border-radius: 4px;
+}
+
+.floating-lantern::after {
+    content: '';
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    height: 15px;
+    background: #8b4513;
+}
+
+.lantern-1 {
+    top: 12%;
+    left: 8%;
+    animation-delay: 0s;
+}
+
+.lantern-2 {
+    top: 85%;
+    right: 25%;
+    animation-delay: 4s;
+}
+
+.lantern-3 {
+    top: 8%;
+    left: 85%;
+    animation-delay: 8s;
+}
+
+.lantern-4 {
+    top: 82%;
+    left: 15%;
+    animation-delay: 12s;
+}
+
+.lantern-5 {
+    top: 15%;
+    right: 8%;
+    animation-delay: 16s;
+}
+
+.lantern-6 {
+    top: 88%;
+    right: 10%;
+    animation-delay: 20s;
+}
+
+/* Đèn lồng nhiều màu */
+.lantern-red {
+    background: radial-gradient(#ff4757, #ff3838);
+    box-shadow: 0 0 20px rgba(255, 71, 87, 0.5);
+}
+
+.lantern-yellow {
+    background: radial-gradient(#ffa502, #ff6348);
+    box-shadow: 0 0 20px rgba(255, 165, 2, 0.5);
+}
+
+.lantern-pink {
+    background: radial-gradient(#ff6b9d, #ee5a6f);
+    box-shadow: 0 0 20px rgba(255, 107, 157, 0.5);
+}
+
+.lantern-blue {
+    background: radial-gradient(#3742fa, #2f3542);
+    box-shadow: 0 0 20px rgba(55, 66, 250, 0.5);
+}
+
+.lantern-green {
+    background: radial-gradient(#26de81, #20bf6b);
+    box-shadow: 0 0 20px rgba(38, 222, 129, 0.5);
+}
+
+.lantern-purple {
+    background: radial-gradient(#a55eea, #8854d0);
+    box-shadow: 0 0 20px rgba(165, 94, 234, 0.5);
+}
+
+/* Keyframes mới */
+@keyframes mooncakeFloat {
+    0%, 100% {
+        transform: translateY(0) rotate(0deg);
+    }
+    50% {
+        transform: translateY(-10px) rotate(5deg);
+    }
+}
+
+@keyframes cloudFloat {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    50% {
+        transform: translateX(50px);
+    }
+}
+
+@keyframes fireworkExplode {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(3);
+        opacity: 0.8;
+        box-shadow: 0 0 20px #ffd700, 0 0 40px #ff69b4, 0 0 60px #00ff00;
+    }
+    100% {
+        transform: scale(0);
+        opacity: 0;
+    }
+}
+
+@keyframes floatingLantern {
+    0%, 100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-30px) translateX(20px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(-20px) translateX(-20px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-40px) translateX(10px) rotate(3deg);
+    }
+}

@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Trang web về Tết Trung Thu - Nơi chia sẻ những lời chúc và khoảnh khắc đoàn viên ý nghĩa">
+    <meta name="keywords" content="Tết Trung Thu, Đoàn Viên, Lời Chúc, Gia Đình, Yêu Thương">
+    <title>Tết Trung Thu - Đoàn Viên</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://unpkg.com/aos@2.3.4/dist/aos.css">
+    <link rel="stylesheet" href="/style.css">
+    <style>
+        .loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #1a1a1a;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        .loading.hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+        .loading-lantern {
+            width: 100px;
+            height: 140px;
+            background: radial-gradient(#ff9f43, #ffd700);
+            border-radius: 50px;
+            position: relative;
+            animation: float 2s ease-in-out infinite;
+        }
+        .loading-text {
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            color: #fff;
+            font-size: 1.2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="loading">
+        <div class="loading-lantern">
+            <div class="loading-text">Đang tải...</div>
+        </div>
+    </div>
+
+    <audio id="backgroundMusic" loop>
+        <source src="assets/Nhạc nền trung thu.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="music-control">
+        <button id="toggleMusic" class="btn btn-outline-light">
+            ♫ Bật/Tắt Nhạc
+        </button>
+    </div>
+
+    <div class="stars-container"></div>
+    <div class="moon"></div>
+    <div class="fairy">
+        <div class="fairy-hair"></div>
+        <div class="fairy-head"></div>
+        <div class="fairy-body"></div>
+    </div>
+    <div class="rabbit">
+        <div class="rabbit-head"></div>
+        <div class="rabbit-ear left"></div>
+        <div class="rabbit-ear right"></div>
+        <div class="rabbit-body"></div>
+    </div>
+    
+    <!-- Thêm các vector mới -->
+    <div class="mooncakes">
+        <div class="mooncake mooncake-1"></div>
+        <div class="mooncake mooncake-2"></div>
+        <div class="mooncake mooncake-3"></div>
+    </div>
+    
+    <div class="kumquat-trees">
+        <div class="kumquat-tree tree-1"></div>
+    </div>
+    
+    <div class="clouds">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+        <div class="cloud cloud-4"></div>
+        <div class="cloud cloud-5"></div>
+    </div>
+    
+    <div class="fireworks">
+        <div class="firework firework-1"></div>
+        <div class="firework firework-2"></div>
+        <div class="firework firework-3"></div>
+    </div>
+    
+    <div class="floating-lanterns">
+        <div class="floating-lantern lantern-1"></div>
+        <div class="floating-lantern lantern-2"></div>
+        <div class="floating-lantern lantern-3"></div>
+        <div class="floating-lantern lantern-4"></div>
+        <div class="floating-lantern lantern-5"></div>
+        <div class="floating-lantern lantern-6"></div>
+    </div>
+
+    <!-- Chữ Nhật bay lên trời sao -->
+    <div class="japanese-texts">
+            <div class="japanese-text text-1">中秋</div>
+            <div class="japanese-text text-2">家族</div>
+            <div class="japanese-text text-3">平和</div>
+            <div class="japanese-text text-4">愛</div>
+        </div>
+
+    <main class="container">
+        <section class="hero" data-aos="fade-up">
+            <div class="emoji-3d">
+                <div class="emoji-face">
+                    🥰
+                </div>
+                <div class="heart-particles">
+                    <div class="heart heart-1">💕</div>
+                    <div class="heart heart-2">💖</div>
+                    <div class="heart heart-3">💗</div>
+                    <div class="heart heart-4">💝</div>
+                    <div class="heart heart-5">💘</div>
+                </div>
+            </div>
+            <h1 class="main-title">Tết Trung Thu</h1>
+            <div class="typed-text"></div>
+        </section>
+
+        <section class="wishes" data-aos="fade-up">
+            <div class="wish-container">
+                <div class="wishes-grid">
+                    <div class="wish-card" data-aos="zoom-in">
+                        <h3>Lời Chúc Gia Đình</h3>
+                        <p>Chúc gia đình ta đoàn viên, sum vầy<br>
+                           Trăng sáng soi đường về nhà<br>
+                           Nơi có tình thương ấm áp nhất</p>
+                    </div>
+                    <div class="wish-card" data-aos="zoom-in">
+                        <h3>Lời Chúc Yêu Thương</h3>
+                        <p>Chúc mọi người có một tình yêu trọn vẹn<br>
+                           Tình cảm tăng thêm một bậc <br>
+                           Hạnh phúc tràn đầy như đêm trăng rằm</p>
+                    </div>
+                    <div class="wish-card" data-aos="zoom-in">
+                        <h3>Lời Chúc Thiếu Nhi</h3>
+                        <p>Chúc các bé đêm trung thu vui vẻ<br>
+                           Rước đèn ông sao sáng lung linh<br>
+                           Bánh trung thu ngọt ngào và vui vẻ bên vòng tay cha mẹ nhé </p>
+                    </div>
+                    <div class="wish-card" data-aos="zoom-in">
+                        <h3>Lời Chúc Bản Thân</h3>
+                        <p>Cũng hơn nửa năm lại trôi qua rồi nè 😇<br>
+                           Hãy nhớ yêu thương bản thân của chính mình mọi người nhé ❤️<br>
+                           à mà quên nữa, lo học tiếng anh đi sắp ra trường rồi :((((<br>
+                           Có buồn hay vui gì thì vẫn hãy vững tin vào tương lai phía trước nhé</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="lanterns">
+            <div class="lantern lantern-red"></div>
+            <div class="lantern lantern-yellow"></div>
+            <div class="lantern lantern-pink"></div>
+            <div class="lantern lantern-blue"></div>
+            <div class="lantern lantern-green"></div>
+            <div class="lantern lantern-purple"></div>
+        </section>
+    </main>
+
+    <!-- Phần Kết Thúc Hoành Tráng -->
+    <section class="final-wish-section" id="finalWish">
+        <div class="final-wish-container">
+            <div class="final-wish-content" data-aos="zoom-in">
+                <div class="final-wish-stars"></div>
+                <div class="final-wish-moon"></div>
+                <div class="final-wish-hearts">
+                    <div class="floating-heart">💖</div>
+                    <div class="floating-heart">💕</div>
+                    <div class="floating-heart">💗</div>
+                    <div class="floating-heart">💝</div>
+                    <div class="floating-heart">💘</div>
+                </div>
+                <h1 class="final-wish-title">Lời Kết</h1>
+                <div class="final-wish-text">
+                    <p class="final-wish-main">Chúc mọi người một đêm Trung Thu vui vẻ và hạnh phúc nhé 💖</p>
+                    <p class="final-wish-sub">Mong rằng những khoảnh khắc đoàn viên này sẽ mãi khắc sâu trong tim mọi người</p>
+                    <p class="final-wish-signature">~ Với tất cả tình yêu thương ~</p>
+                </div>
+                <div class="final-wish-lanterns">
+                    <div class="final-lantern lantern-1">🎊</div>
+                    <div class="final-lantern lantern-2">🎉</div>
+                    <div class="final-lantern lantern-3">✨</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.16/dist/typed.umd.js"></script>
+    <script type="module" src="/script.js"></script>
+</body>
+</html>
