@@ -34,14 +34,49 @@
             border-radius: 50px;
             position: relative;
             animation: float 2s ease-in-out infinite;
+            box-shadow: 0 0 30px rgba(255, 215, 0, 0.6);
+            border: 2px solid rgba(255, 215, 0, 0.3);
+        }
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(-2deg);
+            }
+            50% {
+                transform: translateY(-20px) rotate(2deg);
+            }
+        }
+        .loading-lantern::before {
+            content: '';
+            position: absolute;
+            top: -8px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 15px;
+            height: 8px;
+            background-color: #ffd700;
+            border-radius: 4px;
+            box-shadow: 0 0 10px rgba(255, 215, 0, 0.8);
+        }
+        .loading-lantern::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            height: 15px;
+            background: #8b4513;
         }
         .loading-text {
             position: absolute;
-            bottom: -40px;
+            top: 50%;
             left: 50%;
-            transform: translateX(-50%);
+            transform: translate(-50%, -50%);
             color: #fff;
             font-size: 1.2rem;
+            text-align: center;
+            z-index: 10;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
         }
     </style>
 </head>
